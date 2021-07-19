@@ -25,6 +25,7 @@
         @foreach($customers as $customer)
             <tr>
                 <td>{{$customer->fullname}}</td>
+                <td>{{$customer->email}}</td>
             </tr>
         @endforeach
         </tbody>
