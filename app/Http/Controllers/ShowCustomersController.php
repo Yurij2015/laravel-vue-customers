@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-use Illuminate\Http\Response;
+//use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class ShowCustomersController extends Controller
