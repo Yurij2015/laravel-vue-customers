@@ -95,10 +95,11 @@ class ServiceController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Service $service
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy(Service $service)
     {
-        //
+        DB::table('services')->where('id', $service->id)->delete();
+        return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 }

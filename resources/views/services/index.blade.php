@@ -29,6 +29,12 @@
                             title="Edit">
                             Edit
                         </a>
+                        <form action="{{ action('App\Http\Controllers\ServiceController@destroy', ['service' =>
+                        $service->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-link" title="Delete" value="DELETE">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @empty
