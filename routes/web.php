@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ShowCustomersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,17 +26,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/test', function () {return "public test";});
 
-Route::get('/customers', 'App\Http\Controllers\ShowCustomersController');
+Route::get('/customers', ShowCustomersController::class);
 
-//Route::get('/services', 'ServicesController@index');
-//Route::get('/services/create', 'ServicesController@create');
-//Route::post('/services', 'ServicesController@store');
-//Route::get('/services/{service}', 'ServicesController@show');
-//Route::get('/services/{service}/edit', 'ServicesController@edit');
-//Route::put('/services/{service}', 'ServicesController@update');
-//Route::delete('/services/{service}', 'ServicesController@destroy');
+//Route::get('/services', 'App\Http\Controllers\ServiceController@index');
+//Route::get('/services/create', 'App\Http\Controllers\ServiceController@create');
+//Route::post('/services', 'App\Http\Controllers\ServiceController@store');
+//Route::get('/services/{service}', 'App\Http\Controllers\ServiceController@show');
+//Route::get('/services/{service}/edit', 'App\Http\Controllers\ServiceController@edit');
+//Route::put('/services/{service}', 'App\Http\Controllers\ServiceController@update');
+//Route::delete('/services/{service}', 'App\Http\Controllers\ServiceController@destroy');
 
-Route::resource('services', 'App\Http\Controllers\ServicesController');
+Route::resource('services', ServiceController::class);
 
 
 

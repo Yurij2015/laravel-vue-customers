@@ -18,13 +18,13 @@
                     <td>{{$service->description}}</td>
                     <td class="actions">
                         <a
-                            href="{{ action('App\Http\Controllers\ServicesController@show', ['service' => $service->id]) }}"
+                            href="{{ action('App\Http\Controllers\ServiceController@show', ['service' => $service->id]) }}"
                             alt="View"
                             title="View">
                             View
                         </a>
                         <a
-                            href="{{ action('App\Http\Controllers\ServicesController@edit', ['service' => $service->id]) }}"
+                            href="{{ action('App\Http\Controllers\ServiceController@edit', ['service' => $service->id]) }}"
                             alt="Edit"
                             title="Edit">
                             Edit

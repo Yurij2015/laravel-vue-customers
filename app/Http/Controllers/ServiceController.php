@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Services;
+use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
-class ServicesController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -53,26 +53,25 @@ class ServicesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Services $services
+     * @param Service $service
      * @return Application|Factory|View
      */
-    public function show(Services $services)
+    public function show(Service $service)
     {
+        dd($service);
 //        $services = DB::table('services')->get();
-
-        dd($services);
 //        return view('services.show')
 //            ->with('services', $services);
-//        return view('services.show', ['services' => $services]);
+        return view('services.show', ['companyServices' => $companyServices]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Services $services
+     * @param Service $services
      * @return Response
      */
-    public function edit(Services $services)
+    public function edit(Service $services)
     {
         return response('kjkj');
     }
@@ -81,10 +80,10 @@ class ServicesController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Services $services
+     * @param Service $services
      * @return Response
      */
-    public function update(Request $request, Services $services)
+    public function update(Request $request, Service $services)
     {
         //
     }
@@ -92,10 +91,10 @@ class ServicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Services $services
+     * @param Service $services
      * @return Response
      */
-    public function destroy(Services $services)
+    public function destroy(Service $services)
     {
         //
     }
