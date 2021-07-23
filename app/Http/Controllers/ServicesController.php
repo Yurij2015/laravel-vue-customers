@@ -6,7 +6,9 @@ use App\Models\Services;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class ServicesController extends Controller
@@ -36,8 +38,8 @@ class ServicesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -51,19 +53,24 @@ class ServicesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Services $services
-     * @return \Illuminate\Http\Response
+     * @param Services $services
+     * @return Application|Factory|View
      */
     public function show(Services $services)
     {
+//        $services = DB::table('services')->get();
 
+        dd($services);
+//        return view('services.show')
+//            ->with('services', $services);
+//        return view('services.show', ['services' => $services]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Services $services
-     * @return \Illuminate\Http\Response
+     * @param Services $services
+     * @return Response
      */
     public function edit(Services $services)
     {
@@ -73,9 +80,9 @@ class ServicesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Services $services
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Services $services
+     * @return Response
      */
     public function update(Request $request, Services $services)
     {
@@ -85,8 +92,8 @@ class ServicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Services $services
-     * @return \Illuminate\Http\Response
+     * @param Services $services
+     * @return Response
      */
     public function destroy(Services $services)
     {
