@@ -47,7 +47,7 @@ class ServiceController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description')
         ]);
-        return redirect()->action('App\Http\Controllers\ServicesController@index');
+        return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 
     /**
@@ -58,11 +58,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        dd($service);
-//        $services = DB::table('services')->get();
-//        return view('services.show')
-//            ->with('services', $services);
-        return view('services.show', ['companyServices' => $companyServices]);
+//        dd($service);
+        return view('services.show', ['service' => $service]);
     }
 
     /**
