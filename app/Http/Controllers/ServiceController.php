@@ -77,21 +77,27 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Service $services
-     * @return Response
+     * @param Service $service
+     * @return RedirectResponse
      */
-    public function update(Request $request, Service $services)
+    public function update(Request $request, Service $service)
     {
-        //
+        DB::table('services')
+            ->where('id', $service->id)
+            ->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
+        return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Service $services
+     * @param Service $service
      * @return Response
      */
-    public function destroy(Service $services)
+    public function destroy(Service $service)
     {
         //
     }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <a class="btn btn-primary mb-3" href="{{ route('services.create') }}" role="button">Add service</a>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Service Name</th>
