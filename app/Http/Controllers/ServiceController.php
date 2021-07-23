@@ -65,12 +65,12 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Service $services
-     * @return Response
+     * @param Service $service
+     * @return Application|Factory|View
      */
-    public function edit(Service $services)
+    public function edit(Service $service)
     {
-        return response('kjkj');
+        return view('services.edit')->with('service', $service);
     }
 
     /**
