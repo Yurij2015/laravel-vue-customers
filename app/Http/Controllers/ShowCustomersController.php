@@ -24,8 +24,8 @@ class ShowCustomersController extends Controller
 //        $customers = DB::table('customers')->get();
 //        $customers = Customer::get();
 //        return response()->json($customers);
-        if(isset($customerName)){
-            $customers = Customer::where('fullname', $customerName)->get();
+        if (isset($customerName)) {
+            $customers = Customer::where('fullname', 'LIKE', '%' . $customerName . '%')->get();
         } else {
             $customers = Customer::get();
         }
