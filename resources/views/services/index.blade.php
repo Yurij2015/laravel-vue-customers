@@ -41,7 +41,7 @@
             @endforelse
             </tbody>
         </table>
-        {{ $services->links() }}
+        {{ $services->links('pagination::bootstrap-4') }}
     </div>
 @endsection
 
