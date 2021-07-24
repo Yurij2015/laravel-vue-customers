@@ -22,7 +22,7 @@ class ServiceController extends Controller
     public function index()
     {
 //        $services = DB::table('services')->get();
-        $services = Service::paginate(2);
+        $services = Service::paginate(3);
         return view('services.index')
             ->with('services', $services);
     }
