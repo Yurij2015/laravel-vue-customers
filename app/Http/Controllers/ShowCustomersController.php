@@ -19,11 +19,16 @@ class ShowCustomersController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $customerName = null)
     {
 //        $customers = DB::table('customers')->get();
-        $customers = Customer::get();
+//        $customers = Customer::get();
 //        return response()->json($customers);
+        if(isset($customerName)){
+            $customers = Customer::where('fullname', $customerName)->get();
+        } else {
+            $customers = Customer::get();
+        }
         return view('customers.index', ['customers' => $customers]);
     }
 }

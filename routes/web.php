@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/test', function () {return "public test";});
 
-Route::get('/customers', ShowCustomersController::class);
+Route::get('/customers/{customerName?}', ShowCustomersController::class);
 
 //Route::get('/services', 'App\Http\Controllers\ServiceController@index');
 //Route::get('/services/create', 'App\Http\Controllers\ServiceController@create');
