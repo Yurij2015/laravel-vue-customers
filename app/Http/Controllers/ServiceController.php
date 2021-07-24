@@ -85,12 +85,14 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        DB::table('services')
-            ->where('id', $service->id)
-            ->update([
-                'name' => $request->input('name'),
-                'description' => $request->input('description')
-            ]);
+        $service->fill($request->input());
+        $service->save();
+//        DB::table('services')
+//            ->where('id', $service->id)
+//            ->update([
+//                'name' => $request->input('name'),
+//                'description' => $request->input('description')
+//            ]);
         return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 
@@ -102,7 +104,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        DB::table('services')->where('id', $service->id)->delete();
+//        DB::table('services')->where('id', $service->id)->delete();
+        $service->delete();
         return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 }
