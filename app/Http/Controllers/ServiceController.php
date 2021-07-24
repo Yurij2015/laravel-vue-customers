@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -44,10 +45,11 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('services')->insert([
-            'name' => $request->input('name'),
-            'description' => $request->input('description')
-        ]);
+        Service::create($request->input());
+//        DB::table('services')->insert([
+//            'name' => $request->input('name'),
+//            'description' => $request->input('description')
+//        ]);
         return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 
@@ -86,9 +88,9 @@ class ServiceController extends Controller
         DB::table('services')
             ->where('id', $service->id)
             ->update([
-            'name' => $request->input('name'),
-            'description' => $request->input('description')
-        ]);
+                'name' => $request->input('name'),
+                'description' => $request->input('description')
+            ]);
         return redirect()->action('App\Http\Controllers\ServiceController@index');
     }
 
